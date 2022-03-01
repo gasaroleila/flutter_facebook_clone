@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'screens/screens.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -18,13 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Facebook clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Palette.scaffold
-      ),
-      home: HomeScreen(),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          scaffoldBackgroundColor: Palette.scaffold),
+      home: const HomeScreen(),
     );
   }
 }
-
-
