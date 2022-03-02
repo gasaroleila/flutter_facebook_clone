@@ -1,7 +1,10 @@
 import 'package:facebook_clone/config/palette.dart';
 import 'package:facebook_clone/data/data.dart';
+import 'package:facebook_clone/widgets/create_post_contaier.dart';
 import 'package:facebook_clone/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:facebook_clone/models/models.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,12 +34,16 @@ class HomeScreen extends StatelessWidget {
               iconSize: 28.0,
             ),
             CircleButton(
-              icon: Icons.messenger,
+              icon: MdiIcons.facebookMessenger,
               iconSize: 28.0,
             )
           ],
         ),
-        // SliverToBoxAdapter(child: createPostContainer(currentUser))
+        SliverToBoxAdapter(
+            child: CreatePostContainer(currentUser: currentUser)),
+        SliverPadding(
+            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
+            sliver: SliverToBoxAdapter(child: Rooms(onlineUsers: onlineUsers)))
       ],
     ));
   }
