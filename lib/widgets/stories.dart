@@ -65,7 +65,8 @@ class _StoryCard extends StatelessWidget {
           decoration: BoxDecoration(
               gradient: Palette.storyGradient,
               borderRadius: BorderRadius.circular(12.0)),
-        )
+        ),
+        // Padding(padding: padding)
       ],
     );
   }
