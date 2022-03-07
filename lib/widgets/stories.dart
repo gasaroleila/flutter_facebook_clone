@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:facebook_clone/config/palette.dart';
 import 'package:facebook_clone/data/data.dart';
+import 'package:facebook_clone/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:facebook_clone/models/models.dart';
 
@@ -16,6 +17,11 @@ class Stories extends StatelessWidget {
       height: 200.0,
       color: Colors.purpleAccent,
       child: ListView.builder(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 8.0,
+          ),
+          scrollDirection: Axis.horizontal,
           itemCount: 1 + stories.length,
           itemBuilder: (BuildContext context, index) {
             if (index == 0) {
@@ -66,6 +72,30 @@ class _StoryCard extends StatelessWidget {
               gradient: Palette.storyGradient,
               borderRadius: BorderRadius.circular(12.0)),
         ),
+
+        Positioned(
+            top: 8.0,
+            left: 8.0,
+            child: isAddStory
+                ? Container(
+                    height: 40.0,
+                    width: 40.0,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      padding: EdgeInsets.zero,
+                      icon: const Icon(Icons.add),
+                      iconSize: 30.0,
+                      color: Palette.facebookBlue,
+                      onPressed: () => {print('add Story')},
+                    ),
+                  )
+                : ProfileAvatar(
+                  imageUrl: story!.user.imageUrl,
+                  hasBorder: story!.isViewed
+                  ))
         // Padding(padding: padding)
       ],
     );
